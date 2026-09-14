@@ -169,6 +169,38 @@ function shuffleOptions() {
 
 
 // ==========================================
+// CHECK ANSWER WHEN SELECTED
+// ==========================================
+
+function markAnswer(input) {
+
+    const questionNumber = input.name.replace("q", "");
+    const options = document.querySelectorAll(
+        `input[name="${input.name}"]`
+    );
+
+    options.forEach(option => {
+
+        option.parentElement.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+    });
+
+    if (input.value === answers[`q${questionNumber}`]) {
+
+        input.parentElement.classList.add("correct");
+
+    } else {
+
+        input.parentElement.classList.add("wrong");
+
+    }
+}
+
+
+// ==========================================
 // SUBMIT QUIZ
 // ==========================================
 
@@ -238,6 +270,16 @@ function submitQuiz() {
 window.addEventListener("DOMContentLoaded", function () {
 
     shuffleOptions();
+
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+
+        input.addEventListener("change", function () {
+
+            markAnswer(input);
+
+        });
+
+    });
 
 });
 </script>
