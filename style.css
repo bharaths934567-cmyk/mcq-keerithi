@@ -1,0 +1,12 @@
+.correct {
+    background-color: #d1fae5 !important;
+    border: 2px solid #22c55e !important;
+    color: #166534;
+    font-weight: bold;
+}
+
+.wrong {
+    background-color: #fee2e2 !important;
+    border: 2px solid #ef4444 !important;
+    color: #991b1b;
+}
