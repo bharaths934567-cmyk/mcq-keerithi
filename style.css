@@ -1,3 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+
+:root {
+    color: #18212f;
+    background: #f4f0e8;
+    font-family: "Noto Sans Tamil", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background: linear-gradient(135deg, #f4f0e8 0%, #e6eef1 100%);
+}
+
+.quiz-shell {
+    width: min(920px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 56px 0 72px;
+}
+
+.quiz-header {
+    margin-bottom: 28px;
+    padding: 32px;
+    color: #f8fafc;
+    background: #173b4d;
+    border-radius: 8px;
+    box-shadow: 12px 12px 0 #d79752;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: #f3c677;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 12px;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1.15;
+}
+
+.quiz-header p:last-child {
+    margin: 0;
+    color: #d6e2e7;
+}
+
+.question {
+    margin: 18px 0;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid #cad4d4;
+    border-radius: 8px;
+}
+
+.question h2 {
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.question label {
+    display: block;
+    margin: 10px 0;
+    padding: 12px 14px;
+    background: #f8faf9;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.question label:hover {
+    border-color: #7ba5a2;
+    background: #edf5f3;
+}
+
+.question input {
+    margin-right: 10px;
+    accent-color: #173b4d;
+}
+
+.answer {
+    display: none;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    padding: 15px 20px;
+    color: #fff;
+    background: #c5663b;
+    border: 0;
+    border-radius: 6px;
+    font: 700 1rem "Noto Sans Tamil", sans-serif;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #a94e2c;
+}
+
+.result {
+    min-height: 1.6em;
+    margin: 22px 0 0;
+    color: #173b4d;
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-align: center;
+}
+
 .correct {
     background-color: #d1fae5 !important;
     border: 2px solid #22c55e !important;
@@ -9,4 +132,16 @@
     background-color: #fee2e2 !important;
     border: 2px solid #ef4444 !important;
     color: #991b1b;
+}
+
+@media (max-width: 600px) {
+    .quiz-shell {
+        width: min(100% - 20px, 920px);
+        padding-top: 28px;
+    }
+
+    .quiz-header,
+    .question {
+        padding: 20px;
+    }
 }
