@@ -14,6 +14,144 @@
         <p>ஒவ்வொரு கேள்விக்கும் ஒரு பதிலைத் தேர்ந்தெடுத்து உங்கள் மதிப்பெண்ணைக் காணுங்கள்.</p>
     </header>
 
+    <button class="refresh-button" id="refresh-button" type="button" title="கேள்விகளை மாற்றவும்" aria-label="கேள்விகளை மாற்றவும்">↻</button>
+    <form id="quiz-form" onsubmit="event.preventDefault(); submitQuiz();">
+        <section class="question">
+            <h2>1. "வறுமையும் பிரிட்டனுக்கு ஒவ்வாத இந்திய ஆட்சியும்" என்ற புத்தகத்தில் தனிநபர் வருமானத்தைக் குறிப்பிட்டவர் யார்?</h2>
+            <label><input type="radio" name="q1" value="A"> A) சர் ஜேம்ஸ் வில்சன்</label>
+            <label><input type="radio" name="q1" value="B"> B) சைமன் குஸ்மைட்</label>
+            <label><input type="radio" name="q1" value="C"> C) முகஹப் உல் ஹக்</label>
+            <label><input type="radio" name="q1" value="D"> D) தாதாபாய் நவரோஜி</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>2. ஜிடிபியின் (GDP) நவீன கருத்து முதன்முதலில் யாரால் உருவாக்கப்பட்டது?</h2>
+            <label><input type="radio" name="q2" value="A"> A) சர் ஜேம்ஸ் வில்சன்</label>
+            <label><input type="radio" name="q2" value="B"> B) சைமன் குஸ்மைட்</label>
+            <label><input type="radio" name="q2" value="C"> C) முகஹப் உல் ஹக்</label>
+            <label><input type="radio" name="q2" value="D"> D) ஜிக்மே சிங்கே வாங்சசுக்</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>3. பாரத ஸ்டேட் வங்கி நிறுவனத்தின் தலைமையகம் எங்குள்ளது?</h2>
+            <label><input type="radio" name="q3" value="A"> A) புதுடெல்லி</label>
+            <label><input type="radio" name="q3" value="B"> B) சென்னை</label>
+            <label><input type="radio" name="q3" value="C"> C) பூனா</label>
+            <label><input type="radio" name="q3" value="D"> D) மும்பை</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>4. சுற்றுச்சூழல் பாதுகாப்புச் சட்டம் எந்த ஆண்டு கொண்டுவரப்பட்டது?</h2>
+            <label><input type="radio" name="q4" value="A"> A) 1972</label>
+            <label><input type="radio" name="q4" value="B"> B) 1974</label>
+            <label><input type="radio" name="q4" value="C"> C) 1986</label>
+            <label><input type="radio" name="q4" value="D"> D) 2010</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>5. பண்டங்கள் மற்றும் பணிகள் வரி (GST) இந்தியாவில் எப்போது அமல்படுத்தப்பட்டது?</h2>
+            <label><input type="radio" name="q5" value="A"> A) 2017 மார்ச் 29</label>
+            <label><input type="radio" name="q5" value="B"> B) 2017 ஜூலை 1</label>
+            <label><input type="radio" name="q5" value="C"> C) 2015 மே 1</label>
+            <label><input type="radio" name="q5" value="D"> D) 2018 ஜனவரி 1</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>6. "கிராமங்கள் நம் நாட்டின் முதுகெலும்பு" என்று கூறியவர் யார்?</h2>
+            <label><input type="radio" name="q6" value="A"> A) அமர்த்தியா சென்</label>
+            <label><input type="radio" name="q6" value="B"> B) காந்தியடிகள்</label>
+            <label><input type="radio" name="q6" value="C"> C) மார்ஷல்</label>
+            <label><input type="radio" name="q6" value="D"> D) கில்பர்ட் ஸ்லேட்டர்</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>7. கடனட்டையை (Credit Card) உருவாக்கியவர் யார்?</h2>
+            <label><input type="radio" name="q7" value="A"> A) டோனி ஆலன்</label>
+            <label><input type="radio" name="q7" value="B"> B) டாக்டர் பி. ஆர். அம்பேத்கர்</label>
+            <label><input type="radio" name="q7" value="C"> C) ஸ்டோஸ்கி</label>
+            <label><input type="radio" name="q7" value="D"> D) ஜான் பிக்கின்ஸ்</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>8. பொருளியலின் தந்தை என்று அழைக்கப்படுபவர் யார்?</h2>
+            <label><input type="radio" name="q8" value="A"> A) ஆடம் ஸ்மித்</label>
+            <label><input type="radio" name="q8" value="B"> B) ஆல்பரட் மார்ஷல்</label>
+            <label><input type="radio" name="q8" value="C"> C) ஜவஹர்லால் நேரு</label>
+            <label><input type="radio" name="q8" value="D"> D) வி. கிருஷ்ணமூர்த்தி</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>9. இங்கிலாந்து நாட்டின் செலவாணியின் பெயர் என்ன?</h2>
+            <label><input type="radio" name="q9" value="A"> A) யென்</label>
+            <label><input type="radio" name="q9" value="B"> B) டாலர்</label>
+            <label><input type="radio" name="q9" value="C"> C) யூரோ</label>
+            <label><input type="radio" name="q9" value="D"> D) பவுண்டு</label>
+            <div class="answer"></div>
+        </section>
+        <section class="question">
+            <h2>10. தமிழ்நாட்டில் முதன்முதலில் தொழில் தோட்டங்கள் எங்கு நிறுவப்பட்டது?</h2>
+            <label><input type="radio" name="q10" value="A"> A) சேலம்</label>
+            <label><input type="radio" name="q10" value="B"> B) ஆவடி</label>
+            <label><input type="radio" name="q10" value="C"> C) கோயம்புத்தூர்</label>
+            <label><input type="radio" name="q10" value="D"> D) திருப்பூர்</label>
+            <div class="answer"></div>
+        </section>
+        <button class="submit-button" type="submit">மதிப்பெண்ணைக் காண்க</button>
+        <p id="result" class="result" aria-live="polite"></p>
+    </form>
 </main>
+<script>
+const answers = { q1: "D", q2: "B", q3: "D", q4: "C", q5: "B", q6: "B", q7: "D", q8: "A", q9: "D", q10: "B" };
+
+function shuffleItems(items) {
+    for (let index = items.length - 1; index > 0; index--) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [items[index], items[randomIndex]] = [items[randomIndex], items[index]];
+    }
+    return items;
+}
+
+function shuffleOptions() {
+    document.querySelectorAll(".question").forEach(question => {
+        shuffleItems(Array.from(question.querySelectorAll("label"))).forEach(label => {
+            question.insertBefore(label, question.querySelector(".answer"));
+        });
+    });
+}
+
+function markAnswer(input) {
+    document.querySelectorAll(`input[name="${input.name}"]`).forEach(option => {
+        option.parentElement.classList.remove("correct", "wrong");
+    });
+    input.parentElement.classList.add(input.value === answers[input.name] ? "correct" : "wrong");
+}
+
+function submitQuiz() {
+    let score = 0;
+    for (let index = 1; index <= 10; index++) {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && selected.value === answers[`q${index}`]) score++;
+        if (selected) markAnswer(selected);
+    }
+    document.getElementById("result").textContent = `🎯 உங்கள் மதிப்பெண்: ${score} / 10`;
+}
+
+function shuffleQuiz() {
+    const form = document.getElementById("quiz-form");
+    shuffleItems(Array.from(form.querySelectorAll(".question"))).forEach(question => {
+        form.insertBefore(question, form.querySelector(".submit-button"));
+    });
+    form.reset();
+    document.querySelectorAll(".question label").forEach(label => label.classList.remove("correct", "wrong"));
+    document.getElementById("result").textContent = "";
+    shuffleOptions();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    shuffleOptions();
+    document.querySelectorAll('input[type="radio"]').forEach(input => input.addEventListener("change", () => markAnswer(input)));
+    document.getElementById("refresh-button").addEventListener("click", shuffleQuiz);
+});
+</script>
 </body>
 </html>
