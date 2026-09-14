@@ -16,6 +16,28 @@ body {
     background: linear-gradient(135deg, #f4f0e8 0%, #e6eef1 100%);
 }
 
+.refresh-button {
+    position: fixed;
+    top: 50%;
+    right: 18px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    background: #173b4d;
+    border: 2px solid #f3c677;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 12px rgba(23, 59, 77, 0.25);
+}
+
+.refresh-button:hover {
+    background: #c5663b;
+}
+
 .quiz-shell {
     width: min(920px, calc(100% - 32px));
     margin: 0 auto;
@@ -143,5 +165,11 @@ h1 {
     .quiz-header,
     .question {
         padding: 20px;
+    }
+
+    .refresh-button {
+        right: 10px;
+        width: 42px;
+        height: 42px;
     }
 }

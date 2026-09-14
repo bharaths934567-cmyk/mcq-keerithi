@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<button class="refresh-button" id="refresh-button" type="button" title="கேள்விகளை மாற்றவும்" aria-label="கேள்விகளை மாற்றவும்">↻</button>
 <main class="quiz-shell">
     <header class="quiz-header">
         <p class="eyebrow">MCQ CHALLENGE</p>
@@ -135,13 +136,7 @@ const answers = {
 
 function shuffleOptions() {
 
-    for (let i = 1; i <= 10; i++) {
-
-        const question = document.querySelector(
-            `.question:nth-of-type(${i})`
-        );
-
-        if (!question) continue;
+    document.querySelectorAll(".question").forEach(question => {
 
         const labels = Array.from(
             question.querySelectorAll("label")
@@ -164,7 +159,56 @@ function shuffleOptions() {
                 question.querySelector(".answer")
             );
         });
+    });
+}
+
+
+// ==========================================
+// SHUFFLE QUESTIONS AND RESET QUIZ
+// ==========================================
+
+function shuffleQuestions() {
+
+    const form = document.getElementById("quiz-form");
+    const questions = Array.from(
+        form.querySelectorAll(".question")
+    );
+
+    for (let i = questions.length - 1; i > 0; i--) {
+
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+
+        [questions[i], questions[randomIndex]] =
+        [questions[randomIndex], questions[i]];
     }
+
+    questions.forEach(question => {
+
+        form.insertBefore(
+            question,
+            form.querySelector(".submit-button")
+        );
+
+    });
+}
+
+function resetQuiz() {
+
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+
+        input.checked = false;
+        input.parentElement.classList.remove("correct", "wrong");
+
+    });
+
+    document.getElementById("result").textContent = "";
+}
+
+function shuffleQuiz() {
+
+    resetQuiz();
+    shuffleQuestions();
+    shuffleOptions();
 }
 
 
@@ -280,6 +324,11 @@ window.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+
+    document.getElementById("refresh-button").addEventListener(
+        "click",
+        shuffleQuiz
+    );
 
 });
 </script>
