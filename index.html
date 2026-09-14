@@ -100,8 +100,24 @@
         <p id="result" class="result" aria-live="polite"></p>
     </form>
 </main>
+<script src="questions.js"></script>
 <script>
-const answers = { q1: "D", q2: "B", q3: "D", q4: "C", q5: "B", q6: "B", q7: "D", q8: "A", q9: "D", q10: "B" };
+const answers = Object.fromEntries(
+    questionBank.map((question, index) => [`q${index + 1}`, question[2]])
+);
+
+function renderQuestions() {
+    const form = document.getElementById("quiz-form");
+    const questionsMarkup = questionBank.map((question, index) => {
+        const [text, options] = question;
+        const questionNumber = index + 1;
+        const optionsMarkup = options.map((option, optionIndex) => `
+            <label><input type="radio" name="q${questionNumber}" value="${String.fromCharCode(65 + optionIndex)}"> ${String.fromCharCode(65 + optionIndex)}) ${option}</label>
+        `).join("");
+        return `<section class="question"><h2>${questionNumber}. ${text}</h2>${optionsMarkup}<div class="answer"></div></section>`;
+    }).join("");
+    form.innerHTML = `${questionsMarkup}<button class="submit-button" type="submit">மதிப்பெண்ணைக் காண்க</button><p id="result" class="result" aria-live="polite"></p>`;
+}
 
 function shuffleItems(items) {
     for (let index = items.length - 1; index > 0; index--) {
@@ -128,12 +144,12 @@ function markAnswer(input) {
 
 function submitQuiz() {
     let score = 0;
-    for (let index = 1; index <= 10; index++) {
+    for (let index = 1; index <= questionBank.length; index++) {
         const selected = document.querySelector(`input[name="q${index}"]:checked`);
         if (selected && selected.value === answers[`q${index}`]) score++;
         if (selected) markAnswer(selected);
     }
-    document.getElementById("result").textContent = `🎯 உங்கள் மதிப்பெண்: ${score} / 10`;
+    document.getElementById("result").textContent = `🎯 உங்கள் மதிப்பெண்: ${score} / ${questionBank.length}`;
 }
 
 function shuffleQuiz() {
@@ -148,6 +164,7 @@ function shuffleQuiz() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    renderQuestions();
     shuffleOptions();
     document.querySelectorAll('input[type="radio"]').forEach(input => input.addEventListener("change", () => markAnswer(input)));
     document.getElementById("refresh-button").addEventListener("click", shuffleQuiz);
