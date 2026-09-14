@@ -1,0 +1,148 @@
+```javascript
+// ==========================================
+// CORRECT ANSWERS
+// ==========================================
+
+const answers = {
+    q1: "D",
+    q2: "B",
+    q3: "D",
+    q4: "C",
+    q5: "B",
+    q6: "B",
+    q7: "D",
+    q8: "A",
+    q9: "D",
+    q10: "B"
+};
+
+
+// ==========================================
+// SHUFFLE OPTIONS
+// ==========================================
+
+function shuffleOptions() {
+
+    for (let i = 1; i <= 10; i++) {
+
+        const question = document.querySelector(
+            `.question:nth-of-type(${i})`
+        );
+
+        if (!question) continue;
+
+        const labels = Array.from(
+            question.querySelectorAll("label")
+        );
+
+        // Fisher-Yates shuffle
+        for (let j = labels.length - 1; j > 0; j--) {
+
+            const randomIndex =
+                Math.floor(Math.random() * (j + 1));
+
+            [labels[j], labels[randomIndex]] =
+            [labels[randomIndex], labels[j]];
+        }
+
+        // Put shuffled options back
+        labels.forEach(label => {
+            question.insertBefore(
+                label,
+                question.querySelector(".answer")
+            );
+        });
+    }
+}
+
+
+// ==========================================
+// SUBMIT QUIZ
+// ==========================================
+
+function submitQuiz() {
+
+    let score = 0;
+
+    for (let i = 1; i <= 10; i++) {
+
+        const selected = document.querySelector(
+            `input[name="q${i}"]:checked`
+        );
+
+        const options = document.querySelectorAll(
+            `input[name="q${i}"]`
+        );
+
+        // Remove previous colors
+        options.forEach(input => {
+
+            input.parentElement.classList.remove(
+                "correct",
+                "wrong"
+            );
+
+        });
+
+
+        // Show correct answer GREEN
+        options.forEach(input => {
+
+            if (input.value === answers[`q${i}`]) {
+
+                input.parentElement.classList.add("correct");
+
+            }
+
+        });
+
+
+        // Check user's answer
+        if (selected) {
+
+            if (selected.value === answers[`q${i}`]) {
+
+                score++;
+
+            } else {
+
+                selected.parentElement.classList.add("wrong");
+
+            }
+        }
+    }
+
+
+    // Display score
+    document.getElementById("result").innerHTML =
+        `🎯 உங்கள் மதிப்பெண்: ${score} / 10`;
+}
+
+
+// ==========================================
+// RUN SHUFFLE WHEN PAGE LOADS
+// ==========================================
+
+window.addEventListener("DOMContentLoaded", function () {
+
+    shuffleOptions();
+
+});
+```
+
+மேலும் CSS-ல் இதை வைத்துக்கொள்ளுங்கள்:
+
+```css
+.correct {
+    background-color: #d1fae5 !important;
+    border: 2px solid #22c55e !important;
+    color: #166534;
+    font-weight: bold;
+}
+
+.wrong {
+    background-color: #fee2e2 !important;
+    border: 2px solid #ef4444 !important;
+    color: #991b1b;
+}
+```
